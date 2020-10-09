@@ -6,40 +6,50 @@ class Form extends Component {
         
         this.state = {
             name: "",
-            URL: "",
+            URL: ""
         }
     }
+    
+    handleNameChange = event => {
+        /*
+            TODO - Logic for changing state based on form changes
+        */
+       console.log("input updated")
+       console.log(event.target)
 
-    handleChange = event => {
-        const target = event.target;
-        this.setState({ paragraphs: target.value });
+       this.setState({name: event.target.value})
+    }
+
+    handleURLChange = event => {
+        /*
+            TODO - Logic for changing state based on form changes
+        */
+       console.log("input updated")
+       console.log(event.target)
+
+       this.setState({URL: event.target.value})
     }
 
     onFormSubmit = (event) => {
         // to prevent page reload on form submit
         event.preventDefault();
         
-        const submisson = {
-            name: this.state.name,
-            URL: this.state.URL
-        };
+        console.log(this.state)
 
-        this.props.handleSubmit(submit)
+        this.props.handleSubmit(this.state)
 
     }
 
     render() {
 
         return(
-            <div>
             <form>
                 <label>Name</label>
-                <input type="text" value ={this.state.name}/>
+                <input type="text" name="name" onChange={this.handleNameChange} value={this.state.name}></input>
                 <label>URL</label>
-                <input type="text" value={this.state.URL}/>
+                <input type="text" name="URL" onChange={this.handleURLChange} value={this.state.URL}></input>
+                <button onClick={this.onFormSubmit}> Submit </button>
             </form>
-                <button>Submit</button>
-            </div>
 
         );
     
