@@ -36,11 +36,11 @@ const Table = (props) => {
    console.log("propsTable", props);
     {/*TODO - return <table> component, TableHeader and TableBody  */}
 return(
-    <tablev>
+    <table>
     <TableHeader/>
     <TableBody linkData={linkData} removeLink={removeLink}/> 
      
-    </tablev>
+    </table>
 )
 
 }
